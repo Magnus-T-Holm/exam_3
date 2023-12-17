@@ -1,0 +1,150 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  background-image: url("../img/Landing.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  padding: 148px 0 171px;
+  height: calc(100vh - 162px - 100px);
+}
+
+form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+#form_inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+#form_inputs div {
+  display: flex;
+  gap: 18px;
+}
+
+#date_selector {
+  width: 152px;
+  background-color: rgba(255, 253, 250, 0.10);
+  border-radius: 5px;
+  height: 451px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
+}
+
+#date_selector div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding-top: 20px;
+}
+
+#date_selector div label {
+  width: 96px;
+  height: 41px;
+  background-color: #D9D9D9;
+  border-radius: 5px;
+  padding: 12px 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#date_selector div input[type="radio"]:checked+label {
+  outline: black 2px solid;
+  background-color: #FFFDFA;
+}
+
+input,
+select,
+textarea {
+  font-family: "Quicksand", sans-serif;
+  background-color: #FFFDFA;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
+}
+
+textarea {
+  padding: 11px 0 0 14px;
+}
+
+input {
+  height: 18px;
+}
+
+input,
+select {
+  padding: 17px 0 17px 14px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: "Quicksand", sans-serif;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 14px;
+}
+
+#first_name,
+#last_name {
+  width: 226px;
+}
+
+#date_selector .hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+form button {
+  font-family: "Quicksand", sans-serif;
+  height: 53px;
+  color: #E0D3C4;
+}
+
+#booking_done {
+  width: 642px;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+#booking_done h2 {
+  font-family: 'Rasa', serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#booking_done a {
+  font-family: "Quicksand", sans-serif;
+  background-color: #000000;
+  color: #d3c0ab;
+  border-radius: 6px;
+  padding: 8.5px 29.07px;
+  border: none;
+  text-decoration: none;
+}
+
+form[action="setup_dates.php"] {
+  flex-direction: column;
+  width: initial;
+}
+
+form[action="setup_dates.php"] ::-webkit-calendar-picker-indicator {
+  font-size: x-large;
+}
