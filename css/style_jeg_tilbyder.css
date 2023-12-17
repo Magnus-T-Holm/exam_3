@@ -1,0 +1,254 @@
+/* Kode Emil S. "Start" */
+
+/* Typografier fra google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&family=Rasa:ital,wght@0,300;0,400;0,500;1,300&display=swap");
+/* Typografier fra google fonts */
+
+/* Css reset og presets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Quicksand", sans-serif;
+  font-size: 14px;
+  color: black;
+}
+
+body {
+  background-color: var(--creme50);
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "rasa";
+  font-weight: 500;
+}
+
+/* Css reset og presets */
+
+/* Universel color palette */
+:root {
+  --sort: #000000;
+  --brun900: #38291d;
+  --brun700: #534237;
+  --beige500: #d3c0ab;
+  --beige300: #e0d3c4;
+  --beige50: #ede6dd;
+  --creme500: #fff8f1;
+  --creme50: #fffdfa;
+  --hvid: #ffffff;
+}
+
+/* Universel color palette */
+
+/* Midlertidig Navbar 
+nav {
+  width: 100%;
+  background-color: var(--creme500);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 100px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px 0px;
+  position: fixed;
+  z-index: 99;
+  overflow: hidden;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+}
+
+nav h1 {
+  font-size: 30px;
+  font-weight: 300;
+  color: var(--brun900);
+}
+
+nav a {
+  font-size: 18px;
+  color: var(--brun900);
+}
+ Midlertidig Navbar */
+
+/* Hero baggrundsbillede*/
+.hero {
+  background-image: url(/img/klinik.jpg);
+  height: 75vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hero baggrundsbillede*/
+
+/* Hero overlay med tekst */
+.dark-wrap {
+  background-color: var(--sort);
+  top: 20%;
+  min-height: 300px;
+  opacity: 60%;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.dark-wrap p {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--creme50);
+  text-align: center;
+  padding: 20px 20px;
+}
+
+.dark-wrap h2 {
+  font-size: 48px;
+  color: var(--creme50);
+  text-align: center;
+  padding: 0px 20px;
+}
+
+/* Hero overlay med tekst */
+
+/* kort sektion */
+.forloob {
+  max-width: 940px;
+  min-width: 375px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* kort sektion */
+
+/* kort global styles*/
+.card h3 {
+  font-family: "quicksand";
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.card h4 {
+  font-size: 20px;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.card {
+  margin: 0 50px;
+  margin-top: 50px;
+  padding: 0 30px;
+  min-height: 350px;
+  background-color: var(--beige50);
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 4px 0px;
+}
+
+.card p {
+  padding-bottom: 15px;
+}
+
+.card-left {
+  width: 400px;
+}
+
+.line {
+  margin: 0 20px;
+  margin-top: 25px;
+  height: 300px;
+  width: 1px;
+  background-color: #000000;
+  opacity: 0.3;
+}
+
+.card-right {
+  width: 400px;
+  position: relative;
+}
+
+/* kort global styles*/
+
+/* Kort variation styles */
+.card-thick {
+  min-height: 395px;
+}
+
+.line-thick {
+  height: 345px;
+}
+
+/* Kort variation styles */
+
+/* Book knap global styles */
+.book-tid {
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+}
+
+button {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 7px 10px;
+  font-weight: 500;
+  background-color: var(--sort);
+  color: var(--beige500);
+  transition: 200ms;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px 0px;
+}
+
+button:hover {
+  background-color: transparent;
+  color: var(--sort);
+  transform: translateY(-3px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+}
+
+/* Book knap global styles */
+
+/* Responsivt layout til mobile */
+@media only screen and (max-width: 800px) {
+  .card {
+    flex-direction: column;
+    max-width: 450px;
+    min-width: 375px;
+    margin: 25px auto;
+  }
+
+  .line {
+    height: 1px;
+    width: 325px;
+  }
+
+  .last-push {
+    margin-bottom: 60px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .dark-wrap {
+    width: 100%;
+  }
+}
+
+/* Responsivt layout til mobile */
+/* Kode Emil S. "Slut" */
