@@ -112,7 +112,7 @@ button:hover {
 }
 
 .into-landing-section div img {
-  height: 48vh;
+  height: 25vw;
 }
 
 .into-landing-section div article {
@@ -149,7 +149,7 @@ button:hover {
 }
 
 .ommig-section img {
-  height: 40vh;
+  height: 360px;
   width: 360px;
   object-fit: cover;
   border-radius: 300px;

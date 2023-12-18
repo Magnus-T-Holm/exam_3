@@ -1,0 +1,167 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 18, 2023 at 10:45 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `bookings`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `available_times`
+--
+
+CREATE TABLE `available_times` (
+  `id` int(11) NOT NULL,
+  `date_time` datetime DEFAULT NULL,
+  `participants` int(11) NOT NULL DEFAULT 0,
+  `max_participants` int(11) DEFAULT NULL,
+  `fk_therapy` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `available_times`
+--
+
+INSERT INTO `available_times` (`id`, `date_time`, `participants`, `max_participants`, `fk_therapy`) VALUES
+(1, '2023-12-08 12:00:00', 0, 15, 1),
+(2, '2023-12-23 13:31:00', 0, 12, 2),
+(3, '2023-12-22 18:27:00', 0, 2, 4),
+(4, '2023-12-21 15:39:00', 0, 12, 2),
+(5, '2023-12-31 19:42:00', 0, 20, 6),
+(6, '2023-12-09 12:14:00', 0, 3, 3),
+(7, '2023-12-29 19:39:00', 0, 2, 1),
+(8, '2023-12-29 19:39:00', 0, 32, 1),
+(9, '2024-01-01 19:40:00', 0, 1, 1),
+(10, '2024-01-07 19:40:00', 0, 24, 1),
+(11, '2023-12-22 19:40:00', 1, 245, 1),
+(12, '2023-12-31 19:43:00', 0, 4, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `people`
+--
+
+CREATE TABLE `people` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(75) CHARACTER SET latin1 COLLATE latin1_danish_ci DEFAULT NULL,
+  `last_name` varchar(75) CHARACTER SET latin1 COLLATE latin1_danish_ci DEFAULT NULL,
+  `email` varchar(320) CHARACTER SET latin1 COLLATE latin1_danish_ci DEFAULT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
+  `dmy` date DEFAULT NULL,
+  `time` time DEFAULT NULL,
+  `problem` text CHARACTER SET latin1 COLLATE latin1_danish_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `people`
+--
+
+INSERT INTO `people` (`id`, `first_name`, `last_name`, `email`, `phone_number`, `dmy`, `time`, `problem`) VALUES
+(1, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60', '2023-12-14', NULL, 'testing stuff'),
+(2, 'Magnus', 'Holm', 'magnusthestrup26@gmail.com', '60688984', '2023-12-08', NULL, 'testsetsteststestsetsts'),
+(3, 'Magnus', 'Holm', 'magnusthestrup26@gmail.com', '60688984', '2023-12-31', NULL, 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'),
+(4, 'Magnus', 'Holm', 'magnusthestrup26@gmail.com', '60688984', '2023-12-31', NULL, 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'),
+(5, 'Lars', 'Tyndskid', 'LarsTyndskid@mark.dk', '80000085', NULL, NULL, NULL),
+(6, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL),
+(7, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL),
+(8, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL),
+(9, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL),
+(10, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL),
+(11, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL),
+(12, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL),
+(13, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL),
+(14, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL),
+(15, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL),
+(16, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL),
+(17, 'Magnus', 'Holm', 'magnusthestrup@hotmail.com', '60688984', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `therapy`
+--
+
+CREATE TABLE `therapy` (
+  `id` int(11) NOT NULL,
+  `name` varchar(75) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `therapy`
+--
+
+INSERT INTO `therapy` (`id`, `name`) VALUES
+(1, 'Terapeutisk Yin Yoga'),
+(2, 'Kropsorienteret Meditation'),
+(3, 'Nervesystemsregulering'),
+(4, 'Kvindecirkler'),
+(5, 'Traumeinformeret Gruppeforløb'),
+(6, 'En ny Livsfortælling');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `available_times`
+--
+ALTER TABLE `available_times`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_available_times_therapy` (`fk_therapy`);
+
+--
+-- Indexes for table `people`
+--
+ALTER TABLE `people`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `therapy`
+--
+ALTER TABLE `therapy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `available_times`
+--
+ALTER TABLE `available_times`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `people`
+--
+ALTER TABLE `people`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `therapy`
+--
+ALTER TABLE `therapy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `available_times`
+--
+ALTER TABLE `available_times`
+  ADD CONSTRAINT `fk_available_times_therapy` FOREIGN KEY (`fk_therapy`) REFERENCES `therapy` (`id`);
+COMMIT;

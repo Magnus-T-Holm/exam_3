@@ -2,9 +2,9 @@
 require "settings/init.php";
 
 $therapies = $db->sql("SELECT * FROM therapy");
-$dates = $db->sql("SELECT * FROM available_times ORDER BY fk_therapy ASC");
+$dates = $db->sql("SELECT * FROM available_times ORDER BY fk_therapy ASC, date_time");
 
-/*
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -12,7 +12,7 @@ use PHPMailer\PHPMailer\SMTP;
 require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
-*/
+
 if (!empty($_POST["data"])) {
   $data = $_POST["data"];
 
@@ -30,7 +30,6 @@ if (!empty($_POST["data"])) {
   $db->sql($insert, $insert_bind, false);
   $db->sql($update, $update_bind, false);
 
-  /*
   $email = $data["email"];
 
   $msg = "Hi $data[name]";
@@ -85,8 +84,7 @@ if (!empty($_POST["data"])) {
   } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
   }
-  echo '<a href="/insert.php">Go back</a>';
-*/
+
   header('Location: submitted.php');
 }
 ?>
@@ -123,9 +121,9 @@ if (!empty($_POST["data"])) {
       </div>
 
       <ul>
-        <li><a href="#">Forside</a></li>
-        <li><a href="booking.php">Booking</a></li>
-        <li><a href="#">Tilbyder</a></li>
+        <li><a href="/">Forside</a></li>
+        <li><a href="/booking">Booking</a></li>
+        <li><a href="/jeg_tilbyder">Tilbyder</a></li>
       </ul>
     </nav>
 
@@ -136,9 +134,9 @@ if (!empty($_POST["data"])) {
     <div id="mobile_overlay">
       <i onclick="mobileMenu()" class="fa-solid fa-xmark"></i>
       <ul>
-        <li><a href="#">Forside</a></li>
-        <li><a href="booking.php">Booking</a></li>
-        <li><a href="#">Tilbyder</a></li>
+        <li><a href="/">Forside</a></li>
+        <li><a href="/booking">Booking</a></li>
+        <li><a href="/jeg_tilbyder">Tilbyder</a></li>
       </ul>
     </div>
   </header>
@@ -150,7 +148,7 @@ if (!empty($_POST["data"])) {
           <input type="text" name="data[last_name]" id="last_name" placeholder="Efternavn" required>
         </div>
         <input type="email" name="data[email]" id="email" placeholder="E-mail" required>
-        <input type="tel" name="data[phone_number]" id="phone_number" placeholder="Telefon nummer" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}">
+        <input type="tel" name="data[phone_number]" id="phone_number" placeholder="Telefon nummer">
         <select name="data[fk_therapy]" id="fk_therapy" onchange="switchTherapy()">
           <option value="" disabled selected hidden>Vælg et forløb</option>
           <?php

@@ -46,9 +46,9 @@ if (!empty($_POST["data"])) {
       </div>
 
       <ul>
-        <li><a href="#">Forside</a></li>
-        <li><a href="booking.php">Booking</a></li>
-        <li><a href="#">Tilbyder</a></li>
+        <li><a href="/">Forside</a></li>
+        <li><a href="/booking">Booking</a></li>
+        <li><a href="/jeg_tilbyder">Tilbyder</a></li>
       </ul>
     </nav>
 
@@ -59,9 +59,9 @@ if (!empty($_POST["data"])) {
     <div id="mobile_overlay">
       <i onclick="mobileMenu()" class="fa-solid fa-xmark"></i>
       <ul>
-        <li><a href="#">Forside</a></li>
-        <li><a href="booking.php">Booking</a></li>
-        <li><a href="#">Tilbyder</a></li>
+        <li><a href="/">Forside</a></li>
+        <li><a href="/booking">Booking</a></li>
+        <li><a href="/jeg_tilbyder">Tilbyder</a></li>
       </ul>
     </div>
   </header>
