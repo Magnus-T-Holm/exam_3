@@ -13,29 +13,24 @@ main {
   height: calc(100vh - 162px - 100px);
 }
 
-form {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+form[action="booking.php"] {
+  width: 50vw;
+  display: grid;
+  grid-template-areas:
+    "first_name last_name date_selector"
+    "email email date_selector"
+    "phone_number phone_number date_selector"
+    "fk_therapy fk_therapy date_selector"
+    "comment comment date_selector"
+    "button button auto";
   gap: 18px;
-}
-
-#form_inputs {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-#form_inputs div {
-  display: flex;
-  gap: 18px;
+  align-content: center;
 }
 
 #date_selector {
   width: 152px;
   background-color: rgba(255, 253, 250, 0.10);
   border-radius: 5px;
-  height: 451px;
   overflow-y: auto;
   box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
 }
@@ -73,10 +68,6 @@ textarea {
   box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
 }
 
-textarea {
-  padding: 11px 0 0 14px;
-}
-
 input {
   height: 18px;
 }
@@ -93,9 +84,39 @@ textarea::placeholder {
   font-size: 14px;
 }
 
-#first_name,
+#first_name {
+  grid-area: first_name;
+}
+
 #last_name {
-  width: 226px;
+  grid-area: last_name;
+}
+
+#email {
+  grid-area: email;
+}
+
+#phone_number {
+  grid-area: phone_number;
+}
+
+#fk_therapy {
+  grid-area: fk_therapy;
+}
+
+#comment {
+  grid-area: comment;
+  height: 118px;
+  padding: 11px 0 0 14px;
+  resize: none;
+}
+
+form[action="booking.php"] button {
+  grid-area: button;
+}
+
+#date_selector {
+  grid-area: date_selector;
 }
 
 #date_selector .hidden {
@@ -130,7 +151,8 @@ form button {
   font-weight: bold;
 }
 
-#booking_done a {
+#booking_done a,
+#dashboard a {
   font-family: "Quicksand", sans-serif;
   background-color: #000000;
   color: #d3c0ab;
@@ -141,10 +163,74 @@ form button {
 }
 
 form[action="setup_dates.php"] {
+  display: flex;
+  align-items: center;
   flex-direction: column;
   width: initial;
 }
 
+form[action="setup_dates.php"] label:not(:first-child),
+form[action="setup_dates.php"] button {
+  margin-top: 20px;
+}
+
 form[action="setup_dates.php"] ::-webkit-calendar-picker-indicator {
   font-size: x-large;
+}
+
+/* -------------- Dashboard -------------- */
+#dashboard {
+  flex-direction: column;
+  justify-content: unset;
+  align-items: center;
+  padding-top: 44px;
+}
+
+#dashboard_nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+#dashboard select {
+  margin-bottom: 33px;
+}
+
+#dashboard div[data-therapy-type]{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 770px) {
+
+  form[action="booking.php"] {
+    width: 60vw;
+    grid-template-areas:
+      "first_name"
+      "last_name"
+      "email"
+      "phone_number"
+      "fk_therapy"
+      "date_selector"
+      "comment"
+      "button";
+    gap: 18px 0;
+
+  }
+
+  #date_selector {
+    width: auto;
+    min-height: 105px;
+    height: auto;
+  }
+
+  #date_selector div {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 10px;
+  }
+
 }

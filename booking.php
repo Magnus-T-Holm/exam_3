@@ -16,12 +16,13 @@ require 'phpmailer/src/SMTP.php';
 if (!empty($_POST["data"])) {
   $data = $_POST["data"];
 
-  $insert = "INSERT INTO people (first_name, last_name, email, phone_number) 
-              VALUES(:first_name, :last_name, :email, :phone_number)";
+  $insert = "INSERT INTO people (first_name, last_name, email, phone_number, comment, fk_availabletime) 
+              VALUES(:first_name, :last_name, :email, :phone_number, :comment, :fk_availabletime)";
   $insert_bind = [
     ":first_name" => $data["first_name"],
     ":last_name" => $data["last_name"], ":email" => $data["email"],
-    ":phone_number" => $data["phone_number"]
+    ":phone_number" => $data["phone_number"], ":comment" => $data["comment"],
+    ":fk_availabletime" => $data["date"]
   ];
 
   $update = "UPDATE available_times SET participants = participants + 1 WHERE id = :id";
@@ -142,24 +143,20 @@ if (!empty($_POST["data"])) {
   </header>
   <main>
     <form action="booking.php" method="post">
-      <div id="form_inputs">
-        <div>
-          <input type="text" name="data[first_name]" id="first_name" placeholder="Fornavn" required>
-          <input type="text" name="data[last_name]" id="last_name" placeholder="Efternavn" required>
-        </div>
-        <input type="email" name="data[email]" id="email" placeholder="E-mail" required>
-        <input type="tel" name="data[phone_number]" id="phone_number" placeholder="Telefon nummer">
-        <select name="data[fk_therapy]" id="fk_therapy" onchange="switchTherapy()">
-          <option value="" disabled selected hidden>Vælg et forløb</option>
-          <?php
-          foreach ($therapies as $therapy) {
-            echo "<option value=$therapy->id>$therapy->name</option>";
-          }
-          ?>
-        </select>
-        <textarea name="" id="" cols="30" rows="10" placeholder="Kommentar"></textarea>
-        <button type="submit">Book</button>
-      </div>
+      <input type="text" name="data[first_name]" id="first_name" placeholder="Fornavn" required>
+      <input type="text" name="data[last_name]" id="last_name" placeholder="Efternavn" required>
+      <input type="email" name="data[email]" id="email" placeholder="E-mail" required>
+      <input type="tel" name="data[phone_number]" id="phone_number" placeholder="Telefon nummer">
+      <select name="data[fk_therapy]" id="fk_therapy" onchange="switchTherapy()">
+        <option value="" disabled selected hidden>Vælg et forløb</option>
+        <?php
+        foreach ($therapies as $therapy) {
+          echo "<option value=$therapy->id>$therapy->name</option>";
+        }
+        ?>
+      </select>
+      <textarea name="data[comment]" id="comment" cols="30" rows="10" placeholder="Kommentar"></textarea>
+      <button type="submit">Book</button>
       <div id="date_selector">
         <?php
         //Current Unix timestamp
