@@ -66,7 +66,7 @@ $people = $db->sql("SELECT * FROM people");
       <a href="dashboard.php">Oversigt</a>
       <a href="setup_dates.php">Opret tider</a>
     </div>
-    <select name="" id="">
+    <select name="data[fk_therapy]" id="fk_therapy" onchange="switchTherapy()">
       <?php
       foreach ($therapies as $therapy) {
         echo "<option value=$therapy->id>$therapy->name</option>";
@@ -86,11 +86,13 @@ $people = $db->sql("SELECT * FROM people");
           $data_time_unix = strtotime($date->date_time);
           $day_formated = date('d-m-Y', $data_time_unix);
           $time_formated = date('H:i', $data_time_unix);
-          echo "<button id='$date->id' onclick='toggleDateInfo($date->id)'> $day_formated - $time_formated </button>";
-          echo "<div id='participant_container_$date->id' class='hidden'>";
+          echo "<div id='$date->id' class='date_devider' onclick='toggleDateInfo($date->id)'>";
+          echo "<p>$date->participants/$date->max_participants</p> <p>$day_formated - $time_formated</p><i id='arrow_$date->id' class='fa-solid fa-chevron-down'></i>";
+          echo "</div>";
+          echo "<div id='participant_container_$date->id' class='participant_containers hidden'>";
           foreach ($people as $person) {
             if ($person->fk_availabletime == $date->id) {
-              echo "<div>$person->first_name</div>";
+              echo "<div class='person'><div><p>$person->first_name $person->last_name</p><p>Email: $person->email</p><p>Telefon: $person->phone_number</p></div> <button class='delete'>Slet</button></div>";
             }
           }
           echo "</div>";
