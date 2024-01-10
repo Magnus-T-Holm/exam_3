@@ -1,16 +1,11 @@
 /* Kode Emil S. "Start" */
 
-/* Typografier fra google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&family=Rasa:ital,wght@0,300;0,400;0,500;1,300&display=swap");
-/* Typografier fra google fonts */
-
 /* Css reset og presets */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 
-  font-family: "Quicksand", sans-serif;
   font-size: 14px;
 }
 
@@ -25,7 +20,6 @@ a {
 h1,
 h2,
 h3 {
-  font-family: "rasa";
   font-weight: 500;
 }
 
@@ -46,43 +40,10 @@ h3 {
 
 /* Universel color palette */
 
-/* Midlertidig Navbar 
-nav {
-  width: 100%;
-  background-color: var(--creme500);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
-  padding: 0 100px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px 0px;
-  position: fixed;
-  z-index: 99;
-  overflow: hidden;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  width: 400px;
-  justify-content: space-between;
-}
-
-nav h1 {
-  font-size: 30px;
-  font-weight: 300;
-  color: var(--brun900);
-}
-
-nav a {
-  font-size: 18px;
-  color: var(--brun900);
-}
- Midlertidig Navbar */
 
 /* Hero baggrundsbillede*/
 .hero {
-  background-image: url(/img/klinik.jpg);
+  background-image: url("../img/klinik.jpg");
   height: 75vh;
   background-repeat: no-repeat;
   background-position: center;
@@ -126,7 +87,6 @@ nav a {
 /* kort sektion */
 .forloob {
   max-width: 940px;
-  min-width: 375px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -137,7 +97,6 @@ nav a {
 
 /* kort global styles*/
 .card h3 {
-  font-family: "quicksand";
   font-size: 24px;
   margin-top: 30px;
   margin-bottom: 20px;
@@ -229,17 +188,27 @@ button:hover {
   .card {
     flex-direction: column;
     max-width: 450px;
-    min-width: 375px;
     margin: 25px auto;
   }
 
   .line {
     height: 1px;
-    width: 325px;
+    width: 70%;
   }
 
   .last-push {
     margin-bottom: 60px;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .hero {
+    height: auto;
+  }
+
+  .card-left,
+  .card-right {
+    width: auto;
   }
 }
 

@@ -61,7 +61,6 @@ form[action="booking.php"] {
 input,
 select,
 textarea {
-  font-family: "Quicksand", sans-serif;
   background-color: #FFFDFA;
   border-radius: 5px;
   border: none;
@@ -79,7 +78,6 @@ select {
 
 input::placeholder,
 textarea::placeholder {
-  font-family: "Quicksand", sans-serif;
   color: rgba(0, 0, 0, 0.75);
   font-size: 14px;
 }
@@ -128,7 +126,6 @@ form[action="booking.php"] button {
 }
 
 form button {
-  font-family: "Quicksand", sans-serif;
   height: 53px;
   color: #E0D3C4;
 }
@@ -146,14 +143,12 @@ form button {
 }
 
 #booking_done h2 {
-  font-family: 'Rasa', serif;
   font-size: 40px;
   font-weight: bold;
 }
 
 #booking_done a,
 #dashboard a {
-  font-family: "Quicksand", sans-serif;
   background-color: #000000;
   color: #d3c0ab;
   border-radius: 6px;
@@ -239,18 +234,43 @@ div[data-therapy-type] {
   flex-direction: column;
   justify-content: space-between;
   width: 262px;
-  height: 120px;
+  min-height: 159px;
   background-color: #EDE6DD;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
+  gap: 10px
+}
+
+.person_info p:first-of-type {
+  text-align: center;
+  font-size: larger;
+}
+
+.comments {
+  outline: black 1px solid;
+  background-color: #FFFDFA;
   padding: 5px;
   border-radius: 5px;
 }
 
-.person button {
+.delete {
   background-color: #BC3232;
   color: #FFFFFF;
   width: 102px;
   height: 37px;
   align-self: center;
+  margin-top: auto;
+}
+
+.comment_button {
+  background-color: #EDE6DD;
+  color: #000000;
+}
+
+.delete:hover,
+.comment_button:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 770px) {

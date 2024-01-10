@@ -64,3 +64,9 @@ function switchTherapy() {
       break;
   }
 }
+
+function toggleComment(personId) {
+  document.querySelector('#comment_' + personId).classList.toggle('hidden');
+  document.querySelector('#arrow_' + personId).classList.toggle('flip');
+
+}

@@ -1,6 +1,12 @@
 /* Secment kodet af David*/
 * {
   margin: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.rasa {
+  font-family: 'Rasa', serif;
+  font-weight: 400;
 }
 
 nav {
@@ -32,7 +38,6 @@ nav h1 {
   padding-left: 12px;
   color: #38291D;
   font-size: 30px;
-  font-family: 'Work Sans', sans-serif;
 }
 
 li a {
@@ -41,7 +46,6 @@ li a {
   text-decoration: none;
   font-size: 18px;
   color: #38291D;
-  font-family: 'Quicksand', sans-serif;
 }
 
 .mobile-nav {
@@ -74,7 +78,6 @@ li a {
   text-align: center;
   display: flex;
   flex-direction: column;
-  font-family: 'Quicksand', sans-serif;
   gap: 12vh;
   padding-top: 64px;
 }
@@ -82,8 +85,6 @@ li a {
 #mobile_overlay a {
   font-size: 30px;
 }
-
-
 
 button {
   background-color: #000000;
@@ -95,7 +96,7 @@ button {
   transition: ease-in-out 250ms;
 }
 
-button:hover {
+main:not(#dashboard) button:hover {
   background-color: transparent;
   outline: #000000 1px solid;
   color: var(--sort);
@@ -122,7 +123,6 @@ button:hover {
 
 .into-landing-section div article {
   background-color: hsla(0, 0%, 100%, 0.2);
-  font-family: 'Raleway', sans-serif;
 }
 
 .into-landing-section h1 {
